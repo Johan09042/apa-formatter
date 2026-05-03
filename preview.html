@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Resultado - APA AI PRO</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: white;
+    margin: 0;
+}
+
+/* NAVBAR */
+.navbar {
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* CONTENEDOR */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* TARJETAS */
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* TITULOS */
+h2 {
+    margin-top: 0;
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: #4ade80;
+}
+
+/* TEXTO */
+.text-box {
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+/* BOTÓN */
+.download {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 30px;
+    transition: 0.3s;
+}
+
+.download:hover {
+    transform: scale(1.05);
+}
+
+/* FULL WIDTH */
+.full {
+    grid-column: 1 / -1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">📄 Resultado del análisis</div>
+</div>
+
+<div class="container">
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>📌 Intención del documento</h3>
+            <p>{{ analisis.intencion }}</p>
+        </div>
+
+        <div class="card">
+            <h3>📂 Partes detectadas</h3>
+            <p>{{ analisis.partes }}</p>
+        </div>
+
+        <div class="card">
+            <h3>📝 Antes</h3>
+            <div class="text-box">
+                {{ analisis.antes }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>✨ Después</h3>
+            <div class="text-box">
+                {{ analisis.despues }}
+            </div>
+        </div>
+
+        <div class="card full">
+            <h3>🔧 Cambios realizados</h3>
+            <div class="text-box">
+                {{ analisis.cambios }}
+            </div>
+        </div>
+
+        <div class="card full">
+            <h3>💡 Sugerencias</h3>
+            <div class="text-box">
+                {{ analisis.sugerencias }}
+            </div>
+        </div>
+
+    </div>
+
+    <a class="download" href="/download/{{ archivo }}">
+        ⬇ Descargar documento en formato APA
+    </a>
+
+</div>
+
+</body>
+</html>
